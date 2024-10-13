@@ -59,9 +59,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
+                <a href="{{url('/admin/create-product')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Product</p>
+                  <p>Add New</p>
                 </a>
               </li>
 
