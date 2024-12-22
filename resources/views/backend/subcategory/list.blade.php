@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Category List</h3>
+    <h3 class="card-title">SubCategory List</h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
@@ -11,20 +11,20 @@
       <thead>
       <tr>
         <th>Sl</th>
-        <th>Image</th>
+        <th>SubCategory Name</th>
         <th>Category Name</th>
         <th>Action</th>
       </tr>
       </thead>
       <tbody>
-        @foreach ($categories as $category)
+        @foreach ($subcategories as $subcategory)
         <tr>
           <td>{{$loop->index+1}}</td>
-          <td><img src="{{asset('backend/images/category/'.$category->image)}}" height="100" width="100"></td>
-          <td>{{$category->name}}</td>
+          <td>{{$subcategory->name}}</td>
+          <td>{{$subcategory->cat_id}}</td>
           <td>
-            <a href="{{asset('/admin/edit-catetory/'.$category->id)}}" class="btn btn-primary">Edit</a>
-            <a href="{{url('/admin/delete-catetory/'.$category->id)}}" class="btn btn-danger">Delete</a>
+            <a href="" class="btn btn-primary">Edit</a>
+            <a href="{{url('/admin/delete-subcatetory/'.$subcategory->id)}}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
         @endforeach
