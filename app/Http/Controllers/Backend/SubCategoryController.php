@@ -31,7 +31,7 @@ class SubCategoryController extends Controller
 
     public function show ()
     {
-        $subcategories = Subcategory::get();
+        $subcategories = Subcategory::with('category')->get();
         return view('backend.subcategory.list', compact('subcategories'));
     }
 
@@ -40,5 +40,24 @@ class SubCategoryController extends Controller
         $subcategory = Subcategory::find($id);
         $subcategory->delete();
         return redirect()->back();
+    }
+
+    public function edit ($id)
+    {
+        $subCategory = Subcategory::find($id);
+        $categories = Category::get();
+        return view('backend.subcategory.edit',compact('subCategory', 'categories'));
+    }
+
+    public function update (Request $request, $id)
+    {
+        $subCategory = Subcategory::find($id);
+        $subCategory->name = $request->name;
+        $subCategory->slug = Str::slug($request->name);
+        $subCategory->cat_id = $request->cat_id;
+
+        $subCategory->save();
+        return redirect('admin/show-subcatetory');
+
     }
 }

@@ -21,9 +21,9 @@
         <tr>
           <td>{{$loop->index+1}}</td>
           <td>{{$subcategory->name}}</td>
-          <td>{{$subcategory->cat_id}}</td>
+          <td>{{$subcategory->category->name}}</td>
           <td>
-            <a href="" class="btn btn-primary">Edit</a>
+            <a href="{{url('/admin/edit-subcatetory/'.$subcategory->id)}}" class="btn btn-primary">Edit</a>
             <a href="{{url('/admin/delete-subcatetory/'.$subcategory->id)}}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
