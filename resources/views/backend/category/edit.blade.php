@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <input type="submit" value="update" class="form-control btn btn-success">
+                            <input type="submit" value="Update" class="form-control btn btn-success">
                         </div>
                     </div>
 

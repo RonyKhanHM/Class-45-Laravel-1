@@ -27,6 +27,8 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adm
 
 //Product Routs....
 Route::get('/admin/create-product', [ProductController::class, 'create'])->name('product.creat');
+Route::post('/admin/store-product', [ProductController::class, 'store'])->name('product.store');
+Route::get('/admin/show-product', [ProductController::class, 'show'])->name('product.show');
 
 //Caregory Routs....
 Route::get('/admin/create-catetory', [CategoryController::class, 'create'])->name('category.creat');
