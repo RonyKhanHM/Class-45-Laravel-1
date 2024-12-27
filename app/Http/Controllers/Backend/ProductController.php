@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Color;
+use App\Models\GalleryImage;
 use App\Models\Product;
+use App\Models\Size;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -47,14 +49,40 @@ class ProductController extends Controller
 
         //Add color.............
         if (isset($request->color)){
-            foreach($request->color as $color){
+            foreach($request->color as $colorName){
                 $color = new Color();
                 $color->product_id = $product->id;
-                $color->color_name = $color;
+                $color->color_name = $colorName;
                 $color->save();
             }
         }
-        return redirect()->back();
+
+                //Add size.............
+                if (isset($request->size)){
+                    foreach($request->size as $sizeName){
+                        $size = new Size();
+                        $size->product_id = $product->id;
+                        $size->size_name = $sizeName;
+                        $size->save();
+                    }
+                }
+
+                // Gallery Image................
+                if(isset($request->galleryImage)){
+                    foreach($request->galleryImage as $image){
+                        $galleryImage = new GalleryImage();
+                        $galleryImage->product_id = $product->id;
+
+                        $imageName = rand().'-gallery-'.'.'.$image->extension();
+                        $image->MOVE('backend/images/galleryImage/', $imageName);
+
+                        $galleryImage->image = $imageName;
+                        $galleryImage->save();
+                    }
+                }
+
+
+        return redirect('/admin/show-product');
         
     }
 

@@ -136,7 +136,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Gallery Images</label>
-                                <input type="file" accept="image/*" name="GalleryImage[]" multiple class="form-control" required>
+                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-12">
