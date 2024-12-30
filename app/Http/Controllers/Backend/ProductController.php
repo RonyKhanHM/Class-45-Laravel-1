@@ -92,4 +92,11 @@ class ProductController extends Controller
 
         return view('backend.product.show', compact('products'));
     }
+
+    public function delete ($id)
+    {
+        $product = Product::find($id);
+
+        $product->delete();
+    }
 }
