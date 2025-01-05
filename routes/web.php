@@ -30,6 +30,8 @@ Route::get('/admin/create-product', [ProductController::class, 'create'])->name(
 Route::post('/admin/store-product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/admin/show-product', [ProductController::class, 'show'])->name('product.show');
 Route::get('/admin/delete-product/{id}', [ProductController::class, 'delete'])->name('product.delete');
+Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::post('/admin/update-product/{id}', [ProductController::class, 'update'])->name('product.update');
 
 //Caregory Routs....
 Route::get('/admin/create-catetory', [CategoryController::class, 'create'])->name('category.creat');

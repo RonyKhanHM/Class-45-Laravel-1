@@ -28,14 +28,14 @@
           <td>{{$loop->index+1}}</td>
           <td><img src="{{asset('backend/images/product/'.$product->image)}}" height="100" width="100"></td>
           <td>{{$product->name}}</td>
-          <td>{{$product->cat_id}}</td>
-          <td>{{$product->sub_cat_id}}</td>
+          <td>{{$product->category->name}}</td>
+          <td>{{$product->subCategory->name}}</td>
           <td>{{$product->buying_price}}</td>
           <td>{{$product->regular_price}}</td>
           <td>{{$product->discount_price}}</td>
           <td>{{$product->qty}}</td>
           <td>
-            <a href="" class="btn btn-primary">Edit</a>
+            <a href="{{url('/admin/edit-product/'.$product->id)}}" class="btn btn-primary">Edit</a>
             <a href="{{url('/admin/delete-product/'.$product->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
           </td>
         </tr>
