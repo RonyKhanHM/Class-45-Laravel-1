@@ -24,7 +24,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product SKU Code</label>
-                                <input type="text" name="slu_code" value="" class="form-control" required
+                                <input type="text" name="sku_code" value="" class="form-control" required
                                     placeholder="Enter Product SKU Code*">
                             </div>
                         </div>

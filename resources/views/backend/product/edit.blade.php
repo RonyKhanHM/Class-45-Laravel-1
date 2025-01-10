@@ -8,7 +8,7 @@
                 <h3 class="card-title">Edit Product</h3>
             </div>
             <!-- /.card-header -->
-            <form action="{{ url('/admin/update-product/'.$product->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/admin/update-product/'. $product->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -16,48 +16,48 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product Name*</label>
-                                <input type="text" name="name" value="{{$product->name}}" class="form-control" required
-                                    placeholder="Enter Product Name*">
+                                <input type="text" name="name" value="{{ $product->name }}" class="form-control"
+                                    required placeholder="Enter Product Name*">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product SKU Code</label>
-                                <input type="text" name="sku_code" value="{{$product->sku_code}}" class="form-control" required
-                                    placeholder="Enter Product SKU Code*">
+                                <input type="text" name="sku_code" value="{{ $product->sku_code }}" class="form-control"
+                                    required placeholder="Enter Product SKU Code*">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product Regular Price</label>
-                                <input type="number" name="regular_price" value="{{$product->regular_price}}" class="form-control" required
-                                    placeholder="Enter regular price*">
+                                <input type="number" name="regular_price" value="{{ $product->regular_price }}"
+                                    class="form-control" required placeholder="Enter regular price*">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product Discount Price*</label>
-                                <input type="number" name="discount_price" value="{{$product->discount_price}}" class="form-control" required
-                                    placeholder="Enter discount price*">
+                                <input type="number" name="discount_price" value="{{ $product->discount_price }}"
+                                    class="form-control" required placeholder="Enter discount price*">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product Buying Price</label>
-                                <input type="number" name="buying_price" value="{{$product->buying_price}}" class="form-control" required
-                                    placeholder="Enter buying price*">
+                                <input type="number" name="buying_price" value="{{ $product->buying_price }}"
+                                    class="form-control" required placeholder="Enter buying price*">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product Quantity</label>
-                                <input type="number" name="qty" value="{{$product->qty}}" class="form-control" required
-                                    placeholder="Enter Product Quantity*">
+                                <input type="number" name="qty" value="{{ $product->qty }}" class="form-control"
+                                    required placeholder="Enter Product Quantity*">
                             </div>
                         </div>
 
@@ -67,9 +67,8 @@
                                 <select class="form-control select2" style="width: 100%;" name="cat_id">
                                     <option selected disabled>Select Category</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" @if ($product->cat_id == $category->id)
-                                          selected
-                                        @endif>{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}"
+                                            @if ($product->cat_id == $category->id) selected @endif>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -81,9 +80,9 @@
                                 <select class="form-control select2" style="width: 100%;" name="sub_cat_id">
                                     <option selected disabled>Select SubCategory</option>
                                     @foreach ($subCategories as $subCategory)
-                                        <option value="{{ $subCategory->id }}" @if ($product->sub_cat_id == $subCategory->id)
-                                          selected
-                                          @endif>{{ $subCategory->name }}</option>
+                                        <option value="{{ $subCategory->id }}"
+                                            @if ($product->sub_cat_id == $subCategory->id) selected @endif>{{ $subCategory->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -93,7 +92,9 @@
                             <div class="form-group" id="color_fields">
                                 <label>Product Color</label>
                                 @foreach ($product->color as $colorName)
-                                <input type="text" name="color[]" id="color" value="{{$colorName->color_name}}" class="form-control" placeholder="Enter color (optional)">
+                                    <input type="text" name="color[]" id="color"
+                                        value="{{ $colorName->color_name }}" class="form-control"
+                                        placeholder="Enter color (optional)">
                                 @endforeach
                             </div>
                             <button type="button" class="btn btn-primary" id="add_color">Add More</button>
@@ -103,7 +104,8 @@
                             <div class="form-group" id="size_fields">
                                 <label>Product Size</label>
                                 @foreach ($product->size as $sizeName)
-                                <input type="text" name="size[]" value="{{$sizeName->size_name}}" class="form-control" placeholder="Enter size (optional)">
+                                    <input type="text" name="size[]" value="{{ $sizeName->size_name }}"
+                                        class="form-control" placeholder="Enter size (optional)">
                                 @endforeach
                             </div>
                             <button type="button" class="btn btn-primary" id="add_size">Add More</button>
@@ -113,18 +115,14 @@
                             <div class="form-group">
                                 <label>Select Product Type</label>
                                 <select class="form-control select2" style="width: 100%;" name="product_type">
-                                    <option value="hot" @if ($product->product_type == "hot")
-                                      selected
-                                    @endif>Hot Product</option>
-                                    <option value="new" @if ($product->product_type == "new")
-                                      selected
-                                    @endif>New Product</option>
-                                    <option value="regular" @if ($product->product_type == "regular")
-                                      selected
-                                    @endif>Regular Product</option>
-                                    <option value="discount" @if ($product->product_type == "discount")
-                                      selected
-                                    @endif>Discount Product</option>
+                                    <option value="hot" @if ($product->product_type == 'hot') selected @endif>Hot Product
+                                    </option>
+                                    <option value="new" @if ($product->product_type == 'new') selected @endif>New Product
+                                    </option>
+                                    <option value="regular" @if ($product->product_type == 'regular') selected @endif>Regular
+                                        Product</option>
+                                    <option value="discount" @if ($product->product_type == 'discount') selected @endif>Discount
+                                        Product</option>
                                 </select>
                             </div>
                         </div>
@@ -132,29 +130,30 @@
                         <div class="col-12 col-sm-12">
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea id="summernote" name="description">{{$product->description}}</textarea>
+                                <textarea id="summernote" name="description">{{ $product->description }}</textarea>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12">
                             <div class="form-group">
                                 <label>Product Policy</label>
-                                <textarea id="summernote2" name="product_policy">{{$product->product_policy}}</textarea>
+                                <textarea id="summernote2" name="product_policy">{{ $product->product_policy }}</textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Product Image</label>
-                                <input type="file" accept="image/*" name="image" class="form-control" required>
+                                <input type="file" accept="image/*" name="image" class="form-control">
                             </div>
-                            <img src="{{asset('backend/images/product/'.$product->image)}}" height="200" width="200">
+                            <img src="{{ asset('backend/images/product/' . $product->image) }}" height="200"
+                                width="200">
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Gallery Images</label>
-                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control" required>
+                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control">
                             </div>
                             @foreach ($product->galleryImage as $image)
-                            <img src="{{asset('backend/images/galleryImage/'.$image)}}" height="200" width="200">
+                                <img src="{{ asset('backend/images/galleryImage/'. $image->image) }}" height="200" width="200">
                             @endforeach
                         </div>
                         <div class="col-md-12 mt-5">
@@ -349,7 +348,7 @@
             $("#add_color").click(function() {
                 $("#color_fields").append(
                     '<input type="text" name="color[]" id="color" value="" class="form-control"placeholder="Enter color (optional)">'
-                    )
+                )
             })
         })
 
@@ -357,7 +356,7 @@
             $("#add_size").click(function() {
                 $("#size_fields").append(
                     '<input type="text" name="size[]" id="size" value="" class="form-control"placeholder="Enter size (optional)">'
-                    )
+                )
             })
         })
     </script>

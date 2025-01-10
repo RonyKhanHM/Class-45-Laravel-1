@@ -14,17 +14,17 @@ class Product extends Model
 
     public function color ()
     {
-        return $this->hasSetMutator(Color::class, 'product_id', 'id');
+        return $this->hasMany(Color::class, 'product_id', 'id');
     }
 
     public function size ()
     {
-        return $this->hasSetMutator(Size::class, 'product_id', 'id');
+        return $this->hasMany(Size::class, 'product_id', 'id');
     }
 
     public function galleryImage ()
     {
-        return $this->hasSetMutator(GalleryImage::class, 'product_id', 'id');
+        return $this->hasMany(GalleryImage::class, 'product_id', 'id');
     }
 
     public function category ()

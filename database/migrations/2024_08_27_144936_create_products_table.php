@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('discount_price');
             $table->double('buying_price');
             $table->integer('qty');
-            $table->string('slu_code');
+            $table->string('sku_code');
             $table->string('product_type');
             $table->longText('description');
             $table->longText('product_policy');
