@@ -81,7 +81,8 @@ class ProductController extends Controller
                     }
                 }
 
-
+ 
+                toastr()->success('Successfully Added Product!');
         return redirect('/admin/show-product');
         
     }
