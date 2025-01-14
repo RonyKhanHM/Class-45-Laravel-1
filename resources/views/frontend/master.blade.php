@@ -18,5 +18,7 @@
 
 
 	@include('frontend.includes.script')
+
+	@stack('js')
 </body>
 </html>

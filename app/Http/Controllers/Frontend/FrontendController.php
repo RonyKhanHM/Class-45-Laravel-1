@@ -39,20 +39,21 @@ class FrontendController extends Controller
         {
             $cart = new Cart();
 
-        $cart->ip_address = $request->ip();
-        $cart->product_id = $product->id;
-        $cart->qty = 1;
-        if($product->discount_price != null)
-        {
-            $cart->price = $product->discount_price;
-        }
-        if($product->discount_price == null){
-            $cart->price = $product->reqular_price;
-        }
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $product->id;
+            $cart->qty = 1;
+            if($product->discount_price != null)
+                {
+                 $cart->price = $product->discount_price;
+                }
+            if($product->discount_price == null)
+                {
+                 $cart->price = $product->reqular_price;
+                }
 
-        $cart->save();
-        toastr()->success('Successfully Added to Cart!');
-        return redirect()->back();
+            $cart->save();
+            toastr()->success('Successfully Added to Cart!');
+            return redirect()->back();
         }
 
         if($cartProduct != null)
@@ -61,6 +62,56 @@ class FrontendController extends Controller
             $cartProduct->save();
             toastr()->success('Successfully Added to Cart!');
             return redirect()->back();
+        }
+    }
+
+    public function addToCartDetails(Request $request, $id)
+    {
+        $cartProduct = Cart::where('product_id', $id)->where('ip_address', $request->ip())->first();
+        $product = Product::find($id);
+
+        if($cartProduct == null)
+        {
+            $cart = new Cart();
+
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $product->id;
+            $cart->qty = $request->qty;
+            $cart->color = $request->color;
+            $cart->size = $request->size;
+            if($product->discount_price != null)
+                {
+                 $cart->price = $product->discount_price;
+                }
+            if($product->discount_price == null)
+                {
+                 $cart->price = $product->reqular_price;
+                }
+
+            $cart->save();
+            if($request->action == "addToCart"){
+                toastr()->success('Successfully Added to Cart!');
+                return redirect()->back();
+            }
+            else if($request->action == "buyNow"){
+                toastr()->success('Successfully Added to Cart!');
+                return redirect('/checkout');
+            }
+        }
+
+        if($cartProduct != null)
+        {
+            $cartProduct->qty = $cartProduct->qty+$request->qty;
+            $cartProduct->save();
+
+            if($request->action == "addToCart"){
+                toastr()->success('Successfully Added to Cart!');
+                return redirect()->back();
+            }
+            else if($request->action == "buyNow"){
+                toastr()->success('Successfully Added to Cart!');
+                return redirect('/checkout');
+            }
         }
     }
 }

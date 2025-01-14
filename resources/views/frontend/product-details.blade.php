@@ -35,7 +35,8 @@
                                         <span class="" style="color: #f74b81;">
                                             <del>{{ $product->regular_price }} Tk.</del>
                                         </span>
-                                    <form action="" method="POST">
+                                    <form action="{{url('/add-to-cart/details/'.$product->id)}}" method="POST">
+                                        @csrf
                                     </div>
                                     <div class="product-details-select-items-wrap">
                                         @foreach ($product->color as $color)
@@ -62,8 +63,7 @@
                                                 <a title="Decrement" class="decrement-btn" style="margin-top: -10px;">
                                                     <i class="fas fa-minus"></i>
                                                 </a>
-                                                <input type="number" readonly name="qty" placeholder="Qty"
-                                                    value="1" min="1" id="qty" style="height: 35px">
+                                                <input type="number" readonly name="qty" placeholder="Qty" value="1" min="1" id="qty" style="height: 35px">
                                                 <a title="Increment" class="increment-btn" style="margin-top: -10px;">
                                                     <i class="fas fa-plus"></i>
                                                 </a>
@@ -84,7 +84,7 @@
                                     </form>
                                     <button type="button" class="product-details-hot-line">
                                         <i class="fas fa-phone-alt"></i>
-                                        For Call : 0123456854
+                                        For Call : 01567989230
                                     </button>
                                 </div>
                             </div>
@@ -170,3 +170,31 @@
         </div>
     </section>
 @endsection
+
+@push('js')
+    
+    <script>
+        var qtyInput = document.getElementById('qty');
+
+        var plusBtn = document.querySelector('.increment-btn');
+        var minusBtn = document.querySelector('.decrement-btn');
+
+        plusBtn.addEventListener('click', function()
+        {
+            if(parseInt(qtyInput.value) < 10)
+            {
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+            }
+        });
+
+        minusBtn.addEventListener('click', function()
+        {
+            if(parseInt(qtyInput.value) > 1 )
+                 {
+                    qtyInput.value = parseInt(qtyInput.value) - 1;
+                 }
+        });
+
+    </script>
+
+@endpush
