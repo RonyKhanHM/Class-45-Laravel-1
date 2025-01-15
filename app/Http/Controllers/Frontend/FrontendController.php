@@ -114,4 +114,13 @@ class FrontendController extends Controller
             }
         }
     }
+
+    //Category Products........................
+    public function categoryProducts($slug, $id)
+    {
+        $products = Product::where('cat_id', $id)->get();
+        $productsCount = $products->count();
+
+        return view('frontend.category-products', compact('products', 'productsCount'));
+    }
 }

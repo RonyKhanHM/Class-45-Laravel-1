@@ -159,10 +159,12 @@
                             <h3 class="product-details-title">
                                 Category
                             </h3>
-                            <a href="#" class="category-item-outer">
-                                <img src="{{ asset('/frontend/assets/images/product.png') }}" alt="category image">
-                                Test Category
+                            @foreach ($allCategories as $category)
+                            <a href="{{url('category-products/'.$category->slug.'/'.$category->id)}}" class="category-item-outer">
+                                <img src="{{ asset('backend/images/category/'.$category->image) }}" alt="category image">
+                                {{$category->name}}
                             </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
