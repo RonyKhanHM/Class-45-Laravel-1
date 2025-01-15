@@ -36,4 +36,9 @@ class Product extends Model
     {
         return $this->belongsTo(Subcategory::class, 'sub_cat_id', 'id');
     }
+
+    public function cart ()
+    {
+        return $this->hasMany(Cart::class, 'product_id', 'id');
+    }
 }

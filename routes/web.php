@@ -17,6 +17,7 @@ Route::get('/product/details/{slug}', [FrontendController::class, 'productDetail
 Route::get('/view-cart', [FrontendController::class, 'viewCart']);
 Route::get('/checkout', [FrontendController::class, 'checkout']);
 Route::get('/add-to-cart/{id}', [FrontendController::class, 'addToCart']);
+Route::get('/add-to-cart/delete/{id}', [FrontendController::class, 'addToCartDelete']);
 Route::post('/add-to-cart/details/{id}', [FrontendController::class, 'addToCartDetails']);
 
 //Category Products......
