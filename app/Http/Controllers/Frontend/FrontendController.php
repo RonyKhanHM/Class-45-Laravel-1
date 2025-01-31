@@ -183,4 +183,80 @@ class FrontendController extends Controller
 
         return view('frontend.category-products', compact('products', 'productsCount'));
     }
+
+    //shop products...................
+    public function shopProducts (Request $request){
+        if(isset($request->categoryId)){
+            $products = Product::orderBy('id', 'desc')->where('cat_id', $request->categoryId)->get();
+        }
+        elseif(isset($request->subCategoryId)){
+            $products = Product::orderBy('id', 'desc')->where('sub_cat_id', $request->subCategoryId)->get();
+        }
+        else{
+            $products = Product::orderBy('id', 'desc')->get();
+        }
+        $productsCount = $products->count();
+
+        return view('frontend.shop', compact('products', 'productsCount'));
+    }
+    //Offer products...................
+    public function offerProducts (Request $request){
+        if(isset($request->categoryId)){
+            $products = Product::orderBy('id', 'desc')->where('cat_id', $request->categoryId)->get();
+        }
+        elseif(isset($request->subCategoryId)){
+            $products = Product::orderBy('id', 'desc')->where('sub_cat_id', $request->subCategoryId)->get();
+        }
+        else{
+            $products = Product::orderBy('id', 'desc')->get();
+        }
+        $productsCount = $products->count();
+
+        return view('frontend.offer', compact('products', 'productsCount'));
+    }
+    //Combo products...................
+    public function comboProducts (Request $request){
+        if(isset($request->categoryId)){
+            $products = Product::orderBy('id', 'desc')->where('cat_id', $request->categoryId)->get();
+        }
+        elseif(isset($request->subCategoryId)){
+            $products = Product::orderBy('id', 'desc')->where('sub_cat_id', $request->subCategoryId)->get();
+        }
+        else{
+            $products = Product::orderBy('id', 'desc')->get();
+        }
+        $productsCount = $products->count();
+
+        return view('frontend.combo', compact('products', 'productsCount'));
+    }
+    //Standard products...................
+    public function standardProducts (Request $request){
+        if(isset($request->categoryId)){
+            $products = Product::orderBy('id', 'desc')->where('cat_id', $request->categoryId)->get();
+        }
+        elseif(isset($request->subCategoryId)){
+            $products = Product::orderBy('id', 'desc')->where('sub_cat_id', $request->subCategoryId)->get();
+        }
+        else{
+            $products = Product::orderBy('id', 'desc')->get();
+        }
+        $productsCount = $products->count();
+
+        return view('frontend.standard', compact('products', 'productsCount'));
+    }
+    //Premium products...................
+    public function premiumProducts (Request $request){
+        if(isset($request->categoryId)){
+            $products = Product::orderBy('id', 'desc')->where('cat_id', $request->categoryId)->get();
+        }
+        elseif(isset($request->subCategoryId)){
+            $products = Product::orderBy('id', 'desc')->where('sub_cat_id', $request->subCategoryId)->get();
+        }
+        else{
+            $products = Product::orderBy('id', 'desc')->get();
+        }
+        $productsCount = $products->count();
+
+        return view('frontend.premium', compact('products', 'productsCount'));
+    }
 }

@@ -21,6 +21,11 @@ Route::get('/add-to-cart/delete/{id}', [FrontendController::class, 'addToCartDel
 Route::post('/add-to-cart/details/{id}', [FrontendController::class, 'addToCartDetails']);
 Route::post('/confirm-order', [FrontendController::class, 'confirmOrder']);
 Route::get('/order-confirm/{invoiceId}', [FrontendController::class, 'thankYouPage']);
+Route::get('/shop-products', [FrontendController::class, 'shopProducts']);
+Route::get('/offer-products', [FrontendController::class, 'offerProducts']);
+Route::get('/combo-products', [FrontendController::class, 'comboProducts']);
+Route::get('/standard-products', [FrontendController::class, 'standardProducts']);
+Route::get('/premium-products', [FrontendController::class, 'premiumProducts']);
 
 //Category Products......
 Route::get('category-products/{slug}/{id}', [FrontendController::class, 'categoryProducts']);

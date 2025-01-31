@@ -118,28 +118,28 @@
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="shop.html" class="dynamic-page-list-item-link">
+                            <a href="{{url('/shop-products')}}" class="dynamic-page-list-item-link">
                                 Shop
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="shop.html" class="dynamic-page-list-item-link">
+                            <a href="{{url('/offer-products')}}" class="dynamic-page-list-item-link">
                                 Offer Products
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="shop.html" class="dynamic-page-list-item-link">
+                            <a href="{{url('/combo-products')}}" class="dynamic-page-list-item-link">
                                 Combo Offer
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="shop.html" class="dynamic-page-list-item-link">
-                                Brand Products
+                            <a href="{{url('/standard-products')}}" class="dynamic-page-list-item-link">
+                                Standard Products
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="shop.html" class="dynamic-page-list-item-link">
-                                Event Special
+                            <a href="{{url('/premium-products')}}" class="dynamic-page-list-item-link">
+                                Premium Products
                             </a>
                         </li>
                         {{-- </li>

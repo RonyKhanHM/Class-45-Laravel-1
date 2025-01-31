@@ -82,7 +82,7 @@
         </div>
     </section>
     <!-- /Banner -->
-    <!-- Popular Product -->
+    <!-- Hot Product -->
     <section class="product-section">
         <div class="container">
             <div class="section-title-outer">
@@ -131,7 +131,7 @@
         </div>
     </section>
     <!-- /Popular Product -->
-    <!-- Popular Product -->
+    <!-- New Product -->
     <section class="product-section">
         <div class="container">
             <div class="section-title-outer">
@@ -179,7 +179,56 @@
         </div>
     </section>
     <!-- /Popular Product -->
-    <!-- Popular Product -->
+        <!-- Discount Product -->
+        <section class="product-section">
+            <div class="container">
+                <div class="section-title-outer">
+                    <h1 class="title">
+                        Discount Products
+                    </h1>
+                    <a href="type-products.html" class="product-view-all-btn">
+                        View All
+                    </a>
+                </div>
+                <div class="product-items-wrapper">
+                    @foreach ($discountproducts as $product)
+                        <div class="product__item-outer">
+                            <div class="product__item-image-outer">
+                                <a href="{{ url('/product/details/' . $product->slug) }}" class="product__item-image-inner">
+                                    <img src="{{ asset('backend/images/product/' . $product->image) }}" alt="Product Image" />
+                                </a>
+                                <div class="product__item-add-cart-btn-outer">
+                                    <a href="{{ url('add-to-cart/' . $product->id) }}"
+                                        class="product__item-add-cart-btn-inner">
+                                        Add to Cart
+                                    </a>
+                                </div>
+                                <div class="product__type-badge-outer">
+                                    <span class="product__type-badge-inner">
+                                        {{ ucfirst($product->product_type) }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product__item-info-outer">
+                                <a href="{{ url('/product/details/' . $product->slug) }}" class="product__item-name">
+                                    {{ $product->name }}
+                                </a>
+                                <div class="product__item-price-outer">
+                                    <div class="product__item-discount-price">
+                                        <del>{{ $product->regular_price }} Tk.</del>
+                                    </div>
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->discount_price }} Tk.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        <!-- /Discount Product -->
+    <!-- Regular Product -->
     <section class="product-section">
         <div class="container">
             <div class="section-title-outer">
@@ -227,54 +276,6 @@
             </div>
         </div>
     </section>
-    <!-- /Popular Product -->
-    <!-- Popular Product -->
-    <section class="product-section">
-        <div class="container">
-            <div class="section-title-outer">
-                <h1 class="title">
-                    Discount Products
-                </h1>
-                <a href="type-products.html" class="product-view-all-btn">
-                    View All
-                </a>
-            </div>
-            <div class="product-items-wrapper">
-                @foreach ($discountproducts as $product)
-                    <div class="product__item-outer">
-                        <div class="product__item-image-outer">
-                            <a href="{{ url('/product/details/' . $product->slug) }}" class="product__item-image-inner">
-                                <img src="{{ asset('backend/images/product/' . $product->image) }}" alt="Product Image" />
-                            </a>
-                            <div class="product__item-add-cart-btn-outer">
-                                <a href="{{ url('add-to-cart/' . $product->id) }}"
-                                    class="product__item-add-cart-btn-inner">
-                                    Add to Cart
-                                </a>
-                            </div>
-                            <div class="product__type-badge-outer">
-                                <span class="product__type-badge-inner">
-                                    {{ ucfirst($product->product_type) }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="product__item-info-outer">
-                            <a href="{{ url('/product/details/' . $product->slug) }}" class="product__item-name">
-                                {{ $product->name }}
-                            </a>
-                            <div class="product__item-price-outer">
-                                <div class="product__item-discount-price">
-                                    <del>{{ $product->regular_price }} Tk.</del>
-                                </div>
-                                <div class="product__item-regular-price">
-                                    <span>{{ $product->discount_price }} Tk.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- /Popular Product -->
+    <!-- /Regular Product -->
+
 @endsection
