@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-top-wrapper">
             <a href="{{ url('/') }}" class="brand-logo-outer">
-                <img src="{{ asset('/frontend/assets/images/Shopping-BD.png') }}" alt="Logo" alt="Shopping-BD">
+                <img src="{{ asset('backend/images/settings/'.$siteSettings->logo) }}" alt="Logo" alt="Shopping-BD">
             </a>
             <div class="search-form-outer">
                 <form action="" method="GET" class="form-group search-form">

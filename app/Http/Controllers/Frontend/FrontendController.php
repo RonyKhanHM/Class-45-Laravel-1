@@ -259,4 +259,18 @@ class FrontendController extends Controller
 
         return view('frontend.premium', compact('products', 'productsCount'));
     }
+
+    //Policies Pages..............................
+    public function privacyPolicy(){
+        return view('frontend.privacy-policy');
+    }
+    public function termsConditions(){
+        return view('frontend.terms-conditions');
+    }
+    public function refundPolicy(){
+        return view('frontend.refund-policy');
+    }
+    public function peymentPolicy(){
+        return view('frontend.payment-policy');
+    }
 }
