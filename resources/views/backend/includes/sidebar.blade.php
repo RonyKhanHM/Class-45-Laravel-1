@@ -138,25 +138,25 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('/admin/show/privacy-policy')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Privacy Policy</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('/admin/show/terms-conditions')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Terms & Conditions</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('/admin/show/refund-policy')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Refund Policy</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('/admin/show/payment-policy')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Payment Policy</p>
                             </a>
