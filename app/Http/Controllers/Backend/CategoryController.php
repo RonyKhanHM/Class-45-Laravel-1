@@ -19,7 +19,8 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = str::slug($request->name);
 
-        if(isset($request->image)){
+        if(isset($request->image))
+        {
             $imageName = rand().'-category-'.'.'.$request->image->extension();
             $request->image->move('backend/images/category/', $imageName);
             $category->image = $imageName;
@@ -60,7 +61,8 @@ class CategoryController extends Controller
 
         if(isset($request->image))
         {
-            if($category->image && file_exists('backend/images/category/'.$category->image)){
+            if($category->image && file_exists('backend/images/category/'.$category->image))
+            {
                 unlink('backend/images/category/'.$category->image);
             }
 

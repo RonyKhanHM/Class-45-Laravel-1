@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('policies', function (Blueprint $table) {
+        Schema::create('return_requests', function (Blueprint $table) {
             $table->id();
-            $table->longText('privacy_policy')->nullable();
-            $table->longText('terms_conditions')->nullable();
-            $table->longText('refund_policy')->nullable();
-            $table->longText('payment_policy')->nullable();
-            $table->longText('about_us')->nullable();
+            $table->string('c_name');
+            $table->string('c_phone');
+            $table->text('address');
+            $table->string('order_id');
+            $table->longText('issue');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('policies');
+        Schema::dropIfExists('return_requests');
     }
 };

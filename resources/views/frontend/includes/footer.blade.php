@@ -78,15 +78,15 @@
                         </h4>
                         <ul class="footer__list">
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{url('/about-us')}}" class="footer__list-item-link">
                                     About Us
                                 </a>
                             </li>
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{url('/contact-us')}}" class="footer__list-item-link">
                                     Contact Us
                                 </a>
-                            </li>
+                            {{-- </li>
                             <li class="footer__list-item">
                                 <a href="#" class="footer__list-item-link">
                                     Blog
@@ -96,7 +96,7 @@
                                 <a href="#" class="footer__list-item-link">
                                     Careers
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
     <div class="footer__bottom-wrapper">
         <div class="container">
             <p class="footer__bottom-text">
-                © 2024, All rights reserved
+                © {{date('Y')}}, All rights reserved
                 <strong class="text-brand">Shopping-BD</strong>
             </p>
         </div>

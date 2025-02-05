@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('policies', function (Blueprint $table) {
+        Schema::create('contact_messages', function (Blueprint $table) {
             $table->id();
-            $table->longText('privacy_policy')->nullable();
-            $table->longText('terms_conditions')->nullable();
-            $table->longText('refund_policy')->nullable();
-            $table->longText('payment_policy')->nullable();
-            $table->longText('about_us')->nullable();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email')->nullable();
+            $table->string('subject')->nullable();
+            $table->longText('message');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('policies');
+        Schema::dropIfExists('contact_messages');
     }
 };

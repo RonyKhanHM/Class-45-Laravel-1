@@ -32,10 +32,18 @@ Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy']);
 Route::get('/terms-conditions', [FrontendController::class, 'termsConditions']);
 Route::get('/refund-policy', [FrontendController::class, 'refundPolicy']);
 Route::get('/payment-policy', [FrontendController::class, 'peymentPolicy']);
+Route::get('/about-us', [FrontendController::class, 'aboutUs']);
 
 //Category Products......
 Route::get('category-products/{slug}/{id}', [FrontendController::class, 'categoryProducts']);
 Route::get('subcategory-products/{slug}/{id}', [FrontendController::class, 'subCategoryProducts']);
+Route::get('type-products/{type}', [FrontendController::class, 'typeProducts']);
+
+//Return process-abourt us-Contact us................................
+Route::get('/return-product', [FrontendController::class, 'showReturnForm']);
+Route::post('/return-product-request/store', [FrontendController::class, 'storeReturnRequest']);
+Route::get('/contact-us', [FrontendController::class, 'showContactForm']);
+Route::post('/contact-form/store', [FrontendController::class, 'storeContactForm']);
 
 Auth::routes();
 
@@ -85,3 +93,6 @@ Route::post('/admin/update/refund-policy', [SiteSettingController::class, 'updat
 
 Route::get('/admin/show/payment-policy', [SiteSettingController::class, 'showPaymentPolicy']);
 Route::post('/admin/update/payment-policy', [SiteSettingController::class, 'updatePaymentPolicy']);
+
+Route::get('/admin/show/about-us', [SiteSettingController::class, 'showAboutUs']);
+Route::post('/admin/update/about-us', [SiteSettingController::class, 'updateAboutUs']);

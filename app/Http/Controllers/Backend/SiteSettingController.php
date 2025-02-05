@@ -112,4 +112,20 @@ class SiteSettingController extends Controller
         toastr()->success( 'Updated Successfully!');
         return redirect()->back();
     }
+
+    public function showAboutUs ()
+    {
+        return view('backend.settings-policies.about-us');
+    }
+    public function updateAboutUs(Request $request)
+    {
+        $getPolicy = Policy::first();
+
+        $getPolicy->about_us = $request->about_us;
+
+        $getPolicy->save();
+        toastr()->success( 'Updated Successfully!');
+        return redirect()->back();
+    }
+    
 }
