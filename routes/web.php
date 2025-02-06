@@ -27,6 +27,7 @@ Route::get('/offer-products', [FrontendController::class, 'offerProducts']);
 Route::get('/combo-products', [FrontendController::class, 'comboProducts']);
 Route::get('/standard-products', [FrontendController::class, 'standardProducts']);
 Route::get('/premium-products', [FrontendController::class, 'premiumProducts']);
+Route::get('/search-products', [FrontendController::class, 'searchProducts']);
 //Policies pages...................
 Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy']);
 Route::get('/terms-conditions', [FrontendController::class, 'termsConditions']);
