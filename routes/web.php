@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -97,3 +98,6 @@ Route::post('/admin/update/payment-policy', [SiteSettingController::class, 'upda
 
 Route::get('/admin/show/about-us', [SiteSettingController::class, 'showAboutUs']);
 Route::post('/admin/update/about-us', [SiteSettingController::class, 'updateAboutUs']);
+
+//Orders Routes........................
+Route::get('/admin/all-orders', [OrderController::class, 'showAllOrders']);
