@@ -13,4 +13,18 @@ class OrderController extends Controller
         $orders = Order::with('orderDetails')->get();
         return view('backend.order.all-orders', compact('orders'));
     }
+    public function updateStatus($order_id, $status_type)
+    {
+        $order = Order::find($order_id);
+        $order->status = $status_type;
+
+        $order->save();
+        toastr()->success('Status Updated Successfully!');
+        return redirect()->back();
+    }
+    public function statusWiseOrder($status_type)
+    {
+        $orders = Order::with('orderDetails')->where('status', $status_type)->get();
+        return view('backend.order.all-orders', compact('orders'));
+    }
 }
