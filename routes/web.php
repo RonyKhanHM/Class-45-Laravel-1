@@ -51,6 +51,7 @@ Auth::routes();
 
 //Admin login url.....
 Route::get('/admin/login', [AuthController::class, 'adminLogin'])->name('adminLogin');
+Route::get('/admin/logout', [AuthController::class, 'adminLogout'])->name('adminLogout');
 
 // Admin Pannel....
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adminDashboard');
@@ -105,3 +106,7 @@ Route::get('/admin/order/status/{order_id}/{status_type}', [OrderController::cla
 Route::get('/admin/status-orders/{status_type}', [OrderController::class, 'statusWiseOrder']);
 Route::get('/admin/order/edit/{id}', [OrderController::class, 'editOrder']);
 Route::post('/admin/order/update/{id}', [OrderController::class, 'updateOrder']);
+
+//credentials..........................
+Route::get('/admin/show-credentials', [AuthController::class, 'showCredentials']);
+Route::post('/admin/update-credentials', [AuthController::class, 'updateCredentials']);
