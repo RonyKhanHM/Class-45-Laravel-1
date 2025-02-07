@@ -50,8 +50,8 @@
             <a href="{{url('/admin/order/status/'.$order->id.'/delivared')}}" class="btn btn-info">Delivared</a>
           </td>
           <td>
-            <a href="#" class="btn btn-primary">Edit</a>
-            <a href="#" class="btn btn-danger">Delete</a>
+            <a href="{{url('/admin/order/edit/'.$order->id)}}" class="btn btn-primary">Edit</a>
+            {{-- <a href="#" class="btn btn-danger">Delete</a> --}}
           </td>
         </tr>
         @endforeach
