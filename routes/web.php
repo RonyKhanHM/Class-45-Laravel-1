@@ -117,4 +117,4 @@ Route::get('/admin/show-employees', [RoleController::class, 'showEmployees']);
 Route::get('/admin/create-employees', [RoleController::class, 'createEmployees']);
 Route::post('/admin/store-employees', [RoleController::class, 'storeEmployees']);
 Route::get('/admin/edit-employees/{id}', [RoleController::class, 'editeEmployees']);
-Route::post('/admin/update-employees', [RoleController::class, 'updateEmployees']);
+Route::post('/admin/update-employees/{id}', [RoleController::class, 'updateEmployees']);
