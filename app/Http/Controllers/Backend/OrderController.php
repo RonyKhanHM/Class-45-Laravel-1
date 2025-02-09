@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -35,6 +36,24 @@ class OrderController extends Controller
                 $customerPhone = $order->c_phone;
                 $customerAddress = $order->address;
                 $price = $order->price;
+
+                //The Steadfast Header Array.............................
+                $header = [
+                    'Api-Key' => $appkay,
+                    'Secret-Key' => $secretKey,
+                    'Content-Type' => $contentType,
+                ];
+                //The Steadfast payloads Array.............................
+                $payLoad = [
+                    'invoice' => $invoiceNumber,
+                    'recipient_name' => $customerName,
+                    'recipient_phone' => $customerPhone,
+                    'recipient_address' => $customerAddress,
+                    'cod_amount' => $price,
+                ];
+
+                $response = Http::withHeaders($header)->post($endPoint, $payLoad);
+                
             }
             elseif($order->courier_name == "redx"){
                 //REDX API

@@ -39,7 +39,7 @@
             Price: {{$order->price}} <br>
           </td>
           <td>
-            {{$order->courier_name}}
+            <span class="badge badge-danger">{{ucfirst($order->courier_name)}}</span>
           </td>
           <td>
             <span class="badge badge-primary">{{ucfirst($order->status)}}</span>
