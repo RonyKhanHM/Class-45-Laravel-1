@@ -11,6 +11,7 @@
       <thead>
       <tr>
         <th>Sl</th>
+        <th>Date</th>
         <th>Invoice Number</th>
         <th>Product</th>
         <th>Customer Info</th>
@@ -25,6 +26,7 @@
         @foreach ($orders as $order)
         <tr>
           <td>{{$loop->index+1}}</td>
+          <td>{{$order->created_at}}</td>
           <td>{{$order->invoiceId}}</td>
           <td>
             @foreach ($order->orderDetails as $details)

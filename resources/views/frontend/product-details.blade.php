@@ -144,6 +144,10 @@
                                             </span>
                                         </div>
                                     </div>
+                                    {{-- <img src="" alt="Ronykhan hm">
+                                    <img src="" alt="Ronykhan hm">
+                                    <img src="" alt="Ronykhan hm">
+                                    <img src="" alt="Ronykhan hm"> --}}
                                 </div>
                                 <div class="tab-pane fade" id="pills-policy" role="tabpanel"
                                     aria-labelledby="pills-policy-tab">
