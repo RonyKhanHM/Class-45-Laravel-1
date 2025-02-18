@@ -23,7 +23,7 @@ class FrontendController extends Controller
     }
     public function productDetails ($slug)
     {
-        $product = Product::where('slug', $slug)->with('color', 'size', 'galleryImage')->first();
+        $product = Product::where('slug', $slug)->with('color', 'size', 'galleryImage', 'review')->first();
         return view ('frontend.product-details', compact('product'));
     }
     public function viewCart ()

@@ -62,12 +62,22 @@ Route::middleware(['role:admin,editor,accounts,employee'])->group(function(){
 
 //Product Routs....
 Route::middleware(['role:admin,editor'])->group(function(){
+  Route::get('/admin/create-review', [ProductController::class, 'createReview'])->name('review.creat');
+  Route::post('/admin/store-review', [ProductController::class, 'storeReview'])->name('review.store');
+  Route::get('/admin/show-reviews', [ProductController::class, 'showReview'])->name('review.show');
+  Route::get('/admin/delete-review/{id}', [ProductController::class, 'deleteReview'])->name('review.delete');
+  Route::get('/admin/edit-review/{id}', [ProductController::class, 'editReview'])->name('review.edit');
+  Route::post('/admin/update-review/{id}', [ProductController::class, 'updateReview'])->name('review.update');
+
+
+  //Reviews Routs.........................
   Route::get('/admin/create-product', [ProductController::class, 'create'])->name('product.creat');
   Route::post('/admin/store-product', [ProductController::class, 'store'])->name('product.store');
   Route::get('/admin/show-product', [ProductController::class, 'show'])->name('product.show');
   Route::get('/admin/delete-product/{id}', [ProductController::class, 'delete'])->name('product.delete');
   Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit'])->name('product.edit');
   Route::post('/admin/update-product/{id}', [ProductController::class, 'update'])->name('product.update');
+
 });
 
 //Caregory Routs....

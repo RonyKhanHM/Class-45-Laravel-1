@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->string('name');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->text('comments');
             $table->integer('rating');
             $table->string('image');

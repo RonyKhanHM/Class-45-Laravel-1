@@ -10,17 +10,19 @@
                             <div class="col-lg-7 col-md-7">
                                 <div class="product-images-slider-outer">
                                     <div class="slider slider-content">
-                                        @foreach ( $product->galleryImage as $image )
-                                        <div>
-                                            <img src="{{ asset('backend/images/galleryImage/'.$image->image) }}" alt="slider images">
-                                        </div>
+                                        @foreach ($product->galleryImage as $image)
+                                            <div>
+                                                <img src="{{ asset('backend/images/galleryImage/' . $image->image) }}"
+                                                    alt="slider images">
+                                            </div>
                                         @endforeach
                                     </div>
                                     <div class="slider slider-thumb">
                                         @foreach ($product->galleryImage as $image)
-                                        <div>
-                                            <img src="{{ asset('backend/images/galleryImage/'.$image->image) }}" alt="slider images">
-                                        </div>
+                                            <div>
+                                                <img src="{{ asset('backend/images/galleryImage/' . $image->image) }}"
+                                                    alt="slider images">
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -35,52 +37,55 @@
                                         <span class="" style="color: #f74b81;">
                                             <del>{{ $product->regular_price }} Tk.</del>
                                         </span>
-                                    <form action="{{url('/add-to-cart/details/'.$product->id)}}" method="POST">
-                                        @csrf
+                                        <form action="{{ url('/add-to-cart/details/' . $product->id) }}" method="POST">
+                                            @csrf
                                     </div>
                                     <div class="product-details-select-items-wrap">
                                         @foreach ($product->color as $color)
-                                        <div class="product-details-select-item-outer">
-                                            <input type="radio" name="color" id="color" value="{{$color->color_name}}"
-                                                class="category-item-radio">
-                                            <label for="color" class="category-item-label">
-                                                {{$color->color_name}}
-                                            </label>
-                                        </div>
+                                            <div class="product-details-select-item-outer">
+                                                <input type="radio" name="color" id="color"
+                                                    value="{{ $color->color_name }}" class="category-item-radio">
+                                                <label for="color" class="category-item-label">
+                                                    {{ $color->color_name }}
+                                                </label>
+                                            </div>
                                         @endforeach
                                     </div>
                                     <div class="product-details-select-items-wrap">
                                         @foreach ($product->size as $size)
-                                        <div class="product-details-select-item-outer">
-                                            <input type="radio" name="size" value="{{$size->size_name}}" class="category-item-radio">
-                                            <label for="size" class="category-item-label">{{$size->size_name}}</label>
-                                        </div>
+                                            <div class="product-details-select-item-outer">
+                                                <input type="radio" name="size" value="{{ $size->size_name }}"
+                                                    class="category-item-radio">
+                                                <label for="size"
+                                                    class="category-item-label">{{ $size->size_name }}</label>
+                                            </div>
                                         @endforeach
                                     </div>
 
-                                        <div class="purchase-info-outer">
-                                            <div class="product-incremnt-decrement-outer" style="display: block">
-                                                <a title="Decrement" class="decrement-btn" style="margin-top: -10px;">
-                                                    <i class="fas fa-minus"></i>
-                                                </a>
-                                                <input type="number" readonly name="qty" placeholder="Qty" value="1" min="1" id="qty" style="height: 35px">
-                                                <a title="Increment" class="increment-btn" style="margin-top: -10px;">
-                                                    <i class="fas fa-plus"></i>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <button type="submit" name="action" value="addToCart" id="addToCart"
-                                                    class="cart-btn-inner">
-                                                    <i class="fas fa-shopping-cart"></i>
-                                                    Add to Cart
-                                                </button>
-                                                <button type="submit" name="action" value="buyNow" id="buyNow"
-                                                    class="cart-btn-inner">
-                                                    <i class="fas fa-truck"></i>
-                                                    Quick Order
-                                                </button>
-                                            </div>
+                                    <div class="purchase-info-outer">
+                                        <div class="product-incremnt-decrement-outer" style="display: block">
+                                            <a title="Decrement" class="decrement-btn" style="margin-top: -10px;">
+                                                <i class="fas fa-minus"></i>
+                                            </a>
+                                            <input type="number" readonly name="qty" placeholder="Qty" value="1"
+                                                min="1" id="qty" style="height: 35px">
+                                            <a title="Increment" class="increment-btn" style="margin-top: -10px;">
+                                                <i class="fas fa-plus"></i>
+                                            </a>
                                         </div>
+                                        <div>
+                                            <button type="submit" name="action" value="addToCart" id="addToCart"
+                                                class="cart-btn-inner">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Add to Cart
+                                            </button>
+                                            <button type="submit" name="action" value="buyNow" id="buyNow"
+                                                class="cart-btn-inner">
+                                                <i class="fas fa-truck"></i>
+                                                Quick Order
+                                            </button>
+                                        </div>
+                                    </div>
                                     </form>
                                     <button type="button" class="product-details-hot-line">
                                         <i class="fas fa-phone-alt"></i>
@@ -118,36 +123,63 @@
                                     aria-labelledby="pills-description-tab">
                                     {!! $product->description !!}
                                 </div>
-                                <div class="tab-pane fade" id="pills-review" role="tabpanel"
-                                    aria-labelledby="pills-review-tab">
+                                <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                                    @foreach ($product->review as $item)
                                     <div class="review-item-wrapper">
                                         <div class="review-item-left">
-                                            <i class="fas fa-user"></i>
+                                            <img src="{{asset('backend/images/review/'.$item->image)}}" height="50" width="50">
                                         </div>
                                         <div class="review-item-right">
                                             <h4 class="review-author-name">
-                                                Saidul Islam
-                                                <span class=" d-inline bg-danger badge-sm badge text-white">Verified</span>
+                                                {{$item->name}}
+                                                @if ($item->status != null)
+                                                    <span class=" d-inline bg-danger badge-sm badge text-white">{{ucfirst($item->status)}}</span>
+                                                @endif
                                             </h4>
                                             <p class="review-item-message">
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis minus,
-                                                ut unde laudantium accusamus odio nam officia aperiam excepturi quis
-                                                nesciunt eveniet
-                                                eligendi
+                                                {!!$item->comments!!}
                                             </p>
                                             <span class="review-item-rating-stars">
-                                                <i class="fa-star fas"></i>
-                                                <i class="fa-star fas"></i>
-                                                <i class="fa-star fas"></i>
-                                                <i class="fa-star fas"></i>
-                                                <i class="fa-star fas"></i>
+                                                @if ($item->rating == 1)
+                                                    <i class="fa-star fas"></i>
+                                                    @elseif ($item->rating == 2)
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    @elseif ($item->rating == 3)
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    @elseif ($item->rating == 4)
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    @elseif ($item->rating == 5)
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                    <i class="fa-star fas"></i>
+                                                @endif
                                             </span>
+                                            {{-- <br><br>
+                                            <tr>
+                                                <td>
+                                                    <img src="#" alt="Rony.png" height="100">
+                                                </td>
+                                                <td>
+                                                    <img src="#" alt="Rony.png" height="100">
+                                                </td>
+                                                <td>
+                                                    <img src="#" alt="Rony.png" height="100">
+                                                </td>
+                                                <td>
+                                                    <img src="#" alt="Rony.png" height="100">
+                                                </td>
+                                            </tr> --}}
                                         </div>
                                     </div>
-                                    {{-- <img src="" alt="Ronykhan hm">
-                                    <img src="" alt="Ronykhan hm">
-                                    <img src="" alt="Ronykhan hm">
-                                    <img src="" alt="Ronykhan hm"> --}}
+                                    @endforeach
                                 </div>
                                 <div class="tab-pane fade" id="pills-policy" role="tabpanel"
                                     aria-labelledby="pills-policy-tab">
@@ -164,10 +196,12 @@
                                 Category
                             </h3>
                             @foreach ($allCategories as $category)
-                            <a href="{{url('category-products/'.$category->slug.'/'.$category->id)}}" class="category-item-outer">
-                                <img src="{{ asset('backend/images/category/'.$category->image) }}" alt="category image">
-                                {{$category->name}}
-                            </a>
+                                <a href="{{ url('category-products/' . $category->slug . '/' . $category->id) }}"
+                                    class="category-item-outer">
+                                    <img src="{{ asset('backend/images/category/' . $category->image) }}"
+                                        alt="category image">
+                                    {{ $category->name }}
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -178,29 +212,22 @@
 @endsection
 
 @push('js')
-    
     <script>
         var qtyInput = document.getElementById('qty');
 
         var plusBtn = document.querySelector('.increment-btn');
         var minusBtn = document.querySelector('.decrement-btn');
 
-        plusBtn.addEventListener('click', function()
-        {
-            if(parseInt(qtyInput.value) < 10)
-            {
+        plusBtn.addEventListener('click', function() {
+            if (parseInt(qtyInput.value) < 10) {
                 qtyInput.value = parseInt(qtyInput.value) + 1;
             }
         });
 
-        minusBtn.addEventListener('click', function()
-        {
-            if(parseInt(qtyInput.value) > 1 )
-                 {
-                    qtyInput.value = parseInt(qtyInput.value) - 1;
-                 }
+        minusBtn.addEventListener('click', function() {
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+            }
         });
-
     </script>
-
 @endpush

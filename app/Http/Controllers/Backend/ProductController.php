@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\GalleryImage;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Size;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
@@ -222,5 +223,52 @@ class ProductController extends Controller
             }
         }
         return redirect()->back();
+    }
+
+    //Product Reviews.........................................
+    public function createReview()
+    {
+        $products = Product::orderBy('name', 'asc')->get();
+        return view('backend.review.create', compact('products'));
+    }
+    public function storeReview (Request $request)
+    {
+        $review = new Review();
+
+        //Customer image...............
+        if (isset($request->image)){
+            $imageName = rand().'-review-'.'.'.$request->image->extension();
+            $request->image->MOVE('backend/images/review/', $imageName);
+
+            $review->image = $imageName;
+        }
+
+        //Customer Review image...............
+        // if(isset($request->review_image)){
+        //     foreach($request->review_image as $image){
+        //         $reviewImage = new GalleryImage();
+        //         $reviewImage->product_id = $request->id;
+
+        //         $imageName = rand().'-reviewImage-'.'.'.$image->extension();
+        //         $image->MOVE('backend/images/review_image/', $imageName);
+
+        //         $reviewImage->image = $imageName;
+        //         $reviewImage->save();
+        //     }
+        // }
+        $review->product_id = $request->product_id;
+        $review->name = $request->name;
+        $review->status = $request->status;
+        $review->rating = $request->rating;
+        $review->comments = $request->comments;
+
+        $review->save();
+        toastr()->success('Review add Successfully!');
+        return redirect()->back();
+    }
+    public function showReview ()
+    {
+        $reviews = Review::with('product')->get();
+        return view('backend.review.list', compact('reviews'));
     }
 }
