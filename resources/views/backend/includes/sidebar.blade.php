@@ -33,9 +33,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="{{url('/admin/dashboard')}}" class="brand-link">
-          <img src="{{asset('backend/images/settings/'.$siteSettings->logo)}}" alt="Logo" height="70">
-          <span class="brand-text font-weight-light">{{ucFirst(Auth::user()->role)}}</span>
+      <a href="{{ url('/admin/dashboard') }}" class="brand-link">
+          <img src="{{ asset('backend/images/settings/' . $siteSettings->logo) }}" alt="Logo" height="70">
+          <span class="brand-text font-weight-light">{{ ucFirst(Auth::user()->role) }}</span>
       </a>
 
       <!-- Sidebar -->
@@ -47,250 +47,370 @@
                   data-accordion="false">
 
                   @if (Auth::user()->role == 'admin')
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Categories
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/show-catetory') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>List</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/create-catetory') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add New</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                      <i class="nav-icon fas fa-book"></i>
-                      <p>
-                          SubCategories
-                          <i class="fas fa-angle-left right"></i>
-                      </p>
-                  </a>
-                  <ul class="nav nav-treeview">
                       <li class="nav-item">
-                          <a href="{{ url('/admin/show-subcatetory') }}" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>List</p>
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Categories
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
                           </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="{{ url('/admin/create-subcatetory') }}" class="nav-link">
-                              <i class="far fa-circle nav-icon"></i>
-                              <p>Add New</p>
-                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-catetory') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-catetory') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
+
+                          </ul>
                       </li>
 
-                  </ul>
-                 </li>
-                  @endif
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  SubCategories
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-subcatetory') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-subcatetory') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
 
-                  @if (Auth::user()->role == "admin" || Auth::user()->role == "editor")
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                Products
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{url('/admin/show-product')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>List</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url('/admin/create-product') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add New</p>
-                                </a>
-                            </li>
+                          </ul>
+                      </li>
 
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                Reviews
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{url('/admin/show-reviews')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>List</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url('/admin/create-review') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Add New</p>
-                                </a>
-                            </li>
-    
-                        </ul>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Banners
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-banners') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-banners') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
+
+                          </ul>
                       </li>
                   @endif
 
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Products
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-product') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-product') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
+
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Reviews
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-reviews') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-review') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
+
+                          </ul>
+                      </li>
+                  @endif
+
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Orders
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{url('/admin/all-orders')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>All Orders</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/status-orders/pending')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Pending Orders</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/status-orders/confirmed')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Confirmed Orders</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/status-orders/delivared')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Delivared Orders</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/status-orders/canceled')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Canceled Orders</p>
-                            </a>
-                        </li>
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-book"></i>
+                          <p>
+                              Orders
+                              <i class="fas fa-angle-left right"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/all-orders') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>All Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/pending') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Pending Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/confirmed') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Confirmed Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/delivared') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Delivared Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/canceled') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Canceled Orders</p>
+                              </a>
+                          </li>
 
-                    </ul>
-                </li>
+                      </ul>
+                  </li>
 
-                @if (Auth::user()->role == 'admin')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Employees
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show-employees')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>List</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/create-employees')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add New</p>
-                            </a>
-                        </li>
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Products
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-product') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-product') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
 
-                    </ul>
-                </li>
-                @endif
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Reviews
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-reviews') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-review') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
 
-                @if (Auth::user()->role == "admin" || Auth::user()->role == "editor")
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Messages
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show-contact-messages')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Contact Message</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show-return-req-messages')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Return Request</p>
-                            </a>
-                    </ul>
-                </li>  
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Settings
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{url('/admin/site-settings')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Site Settings</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show/privacy-policy')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Privacy Policy</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show/terms-conditions')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Terms & Conditions</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show/refund-policy')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Refund Policy</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show/payment-policy')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Payment Policy</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{url('/admin/show/about-us')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>About US</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                @endif
-                
+                          </ul>
+                      </li>
+                  @endif
+
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-book"></i>
+                          <p>
+                              Orders
+                              <i class="fas fa-angle-left right"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/all-orders') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>All Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/pending') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Pending Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/confirmed') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Confirmed Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/delivared') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Delivared Orders</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ url('/admin/status-orders/canceled') }}" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Canceled Orders</p>
+                              </a>
+                          </li>
+
+                      </ul>
+                  </li>
+
+
+                  @if (Auth::user()->role == 'admin')
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Employees
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-employees') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>List</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/create-employees') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add New</p>
+                                  </a>
+                              </li>
+
+                          </ul>
+                      </li>
+                  @endif
+
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Messages
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-contact-messages') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Contact Message</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show-return-req-messages') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Return Request</p>
+                                  </a>
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-book"></i>
+                              <p>
+                                  Settings
+                                  <i class="fas fa-angle-left right"></i>
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/site-settings') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Site Settings</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show/privacy-policy') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Privacy Policy</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show/terms-conditions') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Terms & Conditions</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show/refund-policy') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Refund Policy</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show/payment-policy') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Payment Policy</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ url('/admin/show/about-us') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>About US</p>
+                                  </a>
+                              </li>
+                          </ul>
+                      </li>
+                  @endif
+
                   <li class="nav-item">
                       <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-book"></i>
@@ -301,13 +421,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{url('/admin/show-credentials')}}" class="nav-link">
+                              <a href="{{ url('/admin/show-credentials') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Crendentials</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{url('/admin/logout')}}" class="nav-link">
+                              <a href="{{ url('/admin/logout') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Logout</p>
                               </a>

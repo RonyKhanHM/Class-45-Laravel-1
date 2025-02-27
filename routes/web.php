@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\MessageController;
 use App\Http\Controllers\Backend\OrderController;
@@ -60,7 +61,7 @@ Route::middleware(['role:admin,editor,accounts,employee'])->group(function(){
   Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adminDashboard');
 });
 
-//Product Routs....
+//Reviews Routs.........................
 Route::middleware(['role:admin,editor'])->group(function(){
   Route::get('/admin/create-review', [ProductController::class, 'createReview'])->name('review.creat');
   Route::post('/admin/store-review', [ProductController::class, 'storeReview'])->name('review.store');
@@ -70,13 +71,21 @@ Route::middleware(['role:admin,editor'])->group(function(){
   Route::post('/admin/update-review/{id}', [ProductController::class, 'updateReview'])->name('review.update');
 
 
-  //Reviews Routs.........................
+  //Product Routs................
   Route::get('/admin/create-product', [ProductController::class, 'create'])->name('product.creat');
   Route::post('/admin/store-product', [ProductController::class, 'store'])->name('product.store');
   Route::get('/admin/show-product', [ProductController::class, 'show'])->name('product.show');
   Route::get('/admin/delete-product/{id}', [ProductController::class, 'delete'])->name('product.delete');
   Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit'])->name('product.edit');
   Route::post('/admin/update-product/{id}', [ProductController::class, 'update'])->name('product.update');
+
+  //Banners...........................
+  Route::get('/admin/show-banners', [BannerController::class, 'showBanners'])->name('banner.show');
+  Route::get('/admin/create-banners', [BannerController::class, 'createBanners'])->name('banner.create');
+  Route::post('/admin/store-banners', [BannerController::class, 'storeBanners'])->name('banner.store');
+  Route::get('/admin/edit-banners/{id}', [BannerController::class, 'editBanners'])->name('banner.edit');
+  Route::post('/admin/update-banners/{id}', [BannerController::class, 'updateBanners'])->name('banner.update');
+  Route::get('/admin/delete-banners/{id}', [BannerController::class, 'deleteBanners'])->name('banner.delete');
 
 });
 
