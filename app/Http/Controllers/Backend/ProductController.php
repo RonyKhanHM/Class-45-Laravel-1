@@ -271,4 +271,23 @@ class ProductController extends Controller
         $reviews = Review::with('product')->get();
         return view('backend.review.list', compact('reviews'));
     }
+    public function editReview ($id)
+    {
+        $review = Review::find($id);
+        $products = Product::get();
+
+        return view('backend.review.edit', compact('review', 'products'));
+    }
+    public function deleteReview($id)
+    {
+        $review = Review::find($id);
+
+        if($review->image && file_exists('backend/images/review/'.$review->image)){
+            unlink('backend/images/review/'.$review->image);
+        }
+
+        $review->delete();
+        toastr()->success('Review Delete Successfully!');
+        return redirect()->back();
+    }
 }
