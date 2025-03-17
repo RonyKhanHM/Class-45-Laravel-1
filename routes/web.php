@@ -79,6 +79,14 @@ Route::middleware(['role:admin,editor'])->group(function(){
   Route::get('/admin/edit-product/{id}', [ProductController::class, 'edit'])->name('product.edit');
   Route::post('/admin/update-product/{id}', [ProductController::class, 'update'])->name('product.update');
 
+  //Sliders banners...........................
+  Route::get('/admin/show-sliders', [BannerController::class, 'showSliders'])->name('slider.show');
+  Route::get('/admin/create-sliders', [BannerController::class, 'createSliders'])->name('slider.create');
+  Route::post('/admin/store-sliders', [BannerController::class, 'storeSliders'])->name('slider.store');
+  Route::get('/admin/edit-sliders/{id}', [BannerController::class, 'editSliders'])->name('slider.edit');
+  Route::post('/admin/update-sliders/{id}', [BannerController::class, 'updateSliders'])->name('slider.update');
+  Route::get('/admin/delete-sliders/{id}', [BannerController::class, 'deleteSliders'])->name('slider.delete');
+
   //Banners...........................
   Route::get('/admin/show-banners', [BannerController::class, 'showBanners'])->name('banner.show');
   Route::get('/admin/create-banners', [BannerController::class, 'createBanners'])->name('banner.create');

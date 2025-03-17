@@ -38,9 +38,9 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select name="status" class="form-control select2">
-                                        <option value="{{$review->id}}" @if ($review->id == $review->status)
-                                            selected
-                                        @endif >{{ucfirst($review->status)}}</option>
+                                        <option value="" selected></option>
+                                        <option value="verified" @if ($review->status == 'verified') selected @endif> Verified</option>
+                                        <option value="unverified" @if ($review->status == 'unverified') selected @endif>Unverified</option>
                                 </select>
                             </div>
                         </div>

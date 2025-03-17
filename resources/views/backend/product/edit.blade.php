@@ -115,14 +115,10 @@
                             <div class="form-group">
                                 <label>Select Product Type</label>
                                 <select class="form-control select2" style="width: 100%;" name="product_type">
-                                    <option value="hot" @if ($product->product_type == 'hot') selected @endif>Hot Product
-                                    </option>
-                                    <option value="new" @if ($product->product_type == 'new') selected @endif>New Product
-                                    </option>
-                                    <option value="regular" @if ($product->product_type == 'regular') selected @endif>Regular
-                                        Product</option>
-                                    <option value="discount" @if ($product->product_type == 'discount') selected @endif>Discount
-                                        Product</option>
+                                    <option value="hot" @if ($product->product_type == 'hot') selected @endif>Hot Product</option>
+                                    <option value="new" @if ($product->product_type == 'new') selected @endif>New Product</option>
+                                    <option value="regular" @if ($product->product_type == 'regular') selected @endif>RegularProduct</option>
+                                    <option value="discount" @if ($product->product_type == 'discount') selected @endif>DiscountProduct</option>
                                 </select>
                             </div>
                         </div>

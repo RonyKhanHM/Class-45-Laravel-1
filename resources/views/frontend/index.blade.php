@@ -28,12 +28,91 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="home__slider-items-wrapper">
+
+                
+                {{-- <div class="home__slider-items-wrapper">
                     <div class="home__slider-item-outer">
                         <img src="{{ asset('backend/images/settings/' . $siteSettings->banner) }}" alt="image"
                             class="home__slider-item-image">
                     </div>
+                </div> --}}
+
+                <style>
+                    .carousel-indicators img {
+                        width: 70px;
+                        display: block;
+                    }
+
+                    .carousel-indicators button {
+                        width: max-content !important;
+                    }
+
+                    .carousel-indicators {
+                        position: unset;
+                    }
+
+                    .carousel-indicators button.active img {
+                        border: 2px solid red;
+                    }
+                </style>
+
+                <div class="carousel slide mt-2" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('backend/images/sliderBanner/banner1.jpg') }}" alt="image" width="100">
+                            <div class="carousel-caption">
+                                <h4>Slitede Title</h4>
+                                <p>
+                                    In the latest episode of Talk To Experts series, Dr. Dao Huu Hung, Head of Industrial AI
+                                    and Mr. Nguyen Cong Minh.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <img src="{{ asset('backend/images/sliderBanner/banner2.jpg') }}" alt="image" width="100">
+                            <div class="carousel-caption">
+                                <h4>Slitede Title</h4>
+                                <p>
+                                    In the latest episode of Talk To Experts series, Dr. Dao Huu Hung, Head of Industrial AI
+                                    and Mr. Nguyen Cong Minh.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('backend/images/sliderBanner/banner3.jpg') }}" alt="image" width="100">
+                            <div class="carousel-caption">
+                                <h4>Slitede Title</h4>
+                                <p>
+                                    In the latest episode of Talk To Experts series, Dr. Dao Huu Hung, Head of Industrial AI
+                                    and Mr. Nguyen Cong Minh.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDemo"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDemo"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                    <div class="carousel-indicators">
+                        <button type="button" class="active" data-bs-target="#carouselDemo" data-bs-slide-to="0">
+                            <img src="{{ asset('backend/images/sliderBanner/banner1.jpg') }}" alt="image" width="100">
+                        </button>
+                        <button type="button" data-bs-target="#carouselDemo" data-bs-slide-to="1">
+                            <img src="{{ asset('backend/images/sliderBanner/banner2.jpg') }}" alt="image" width="100">
+                        </button>
+                        <button type="button" data-bs-target="#carouselDemo" data-bs-slide-to="2">
+                            <img src="{{ asset('backend/images/sliderBanner/banner3.jpg') }}" alt="image"
+                                width="100">
+                        </button>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </section>
@@ -49,7 +128,8 @@
             </div>
             <div class="categoris-items-wrapper owl-carousel">
                 @foreach ($allCategories as $category)
-                    <a href="{{ url('category-products/' . $category->slug . '/' . $category->id) }}" class="categoris-item">
+                    <a href="{{ url('category-products/' . $category->slug . '/' . $category->id) }}"
+                        class="categoris-item">
                         <img src="{{ asset('backend/images/category/' . $category->image) }}" alt="category" />
                         <h6 class="categoris-name">
                             {{ $category->name }}
@@ -66,11 +146,12 @@
         <div class="container">
             <div class="row">
                 @foreach ($banners as $banner)
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="banner-item-outer">
-                        <img src="{{asset('backend/images/banner/'.$banner->image)}}" alt="banner image" class="home__slider-item-image" />
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="banner-item-outer">
+                            <img src="{{ asset('backend/images/banner/' . $banner->image) }}" alt="banner image"
+                                class="home__slider-item-image" />
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -142,7 +223,8 @@
                     <div class="product__item-outer">
                         <div class="product__item-image-outer">
                             <a href="{{ url('/product/details/' . $product->slug) }}" class="product__item-image-inner">
-                                <img src="{{ asset('backend/images/product/' . $product->image) }}" alt="Product Image" />
+                                <img src="{{ asset('backend/images/product/' . $product->image) }}"
+                                    alt="Product Image" />
                             </a>
                             <div class="product__item-add-cart-btn-outer">
                                 <a href="{{ url('add-to-cart/' . $product->id) }}"

@@ -10,6 +10,7 @@ use App\Models\order;
 use App\Models\OrderDetails;
 use App\Models\Product;
 use App\Models\ReturnRequest;
+use App\Models\SliderBanner;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -21,7 +22,8 @@ class FrontendController extends Controller
         $newproducts = Product::where('product_type', 'new')->get();
         $discountproducts = Product::where('product_type', 'discount')->get();
         $banners = Banner::get();
-        return view ('frontend.index', compact('hotproducts', 'regularproducts', 'newproducts', 'discountproducts', 'banners'));
+        $sliders = SliderBanner::get();
+        return view ('frontend.index', compact('hotproducts', 'regularproducts', 'newproducts', 'discountproducts', 'banners', 'sliders'));
     }
     public function productDetails ($slug)
     {
