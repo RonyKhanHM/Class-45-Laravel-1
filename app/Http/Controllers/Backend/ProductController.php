@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Review;
 use App\Models\Size;
 use App\Models\Subcategory;
+use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -19,7 +20,8 @@ class ProductController extends Controller
     {
         $categories = Category::get();
         $subCategories = Subcategory::get();
-        return view('backend.product.create', compact('categories', 'subCategories'));
+        $vendors = Vendor::get();
+        return view('backend.product.create', compact('categories', 'subCategories', 'vendors'));
     }
 
     public function store (Request $request)
@@ -35,6 +37,7 @@ class ProductController extends Controller
         $product->buying_price = $request->buying_price;
         $product->qty = $request->qty;
         $product->sku_code = $request->sku_code;
+        $product->vendor_id = $request->vendor_id;
         $product->product_type = $request->product_type;
         $product->description = $request->description;
         $product->product_policy = $request->product_policy;
@@ -90,8 +93,7 @@ class ProductController extends Controller
 
     public function show ()
     {
-        $products = Product::with('category','subCategory')->get();
-
+        $products = Product::with('category','subCategory', 'vendor')->get();
         return view('backend.product.show', compact('products'));
     }
 
@@ -126,6 +128,7 @@ class ProductController extends Controller
             $image->delete();
         }
         $product->delete();
+        toastr()->success('Product Delete Successfully!');
         return redirect()->back();
     }
 
@@ -134,7 +137,8 @@ class ProductController extends Controller
         $product = Product::with('color', 'size', 'galleryImage')->where('id', $id)->first();
         $categories = Category::get();
         $subCategories = Subcategory::get();
-        return view('backend.product.edit', compact('product', 'categories','subCategories'));
+        $vendors = Vendor::get();
+        return view('backend.product.edit', compact('product', 'categories','subCategories', 'vendors'));
     }
 
     public function update(Request $request, $id)
@@ -150,6 +154,7 @@ class ProductController extends Controller
         $product->buying_price = $request->buying_price;
         $product->qty = $request->qty;
         $product->sku_code = $request->sku_code;
+        $product->vendor_id = $request->vendor_id;
         $product->product_type = $request->product_type;
         $product->description = $request->description;
         $product->product_policy = $request->product_policy;
@@ -224,6 +229,8 @@ class ProductController extends Controller
         }
         return redirect()->back();
     }
+
+
 
     //Product Reviews.........................................
     public function createReview()

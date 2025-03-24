@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\order;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -11,7 +11,7 @@ class OrderController extends Controller
 {
     public function showAllOrders()
     {
-        $orders = Order::with('orderDetails')->get();
+        $orders = Order::with('orderDetails',)->get();
         return view('backend.order.all-orders', compact('orders'));
     }
     public function updateStatus($order_id, $status_type)

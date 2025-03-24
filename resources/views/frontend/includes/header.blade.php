@@ -2,10 +2,10 @@
     <div class="container">
         <div class="header-top-wrapper">
             <a href="{{ url('/') }}" class="brand-logo-outer">
-                <img src="{{ asset('backend/images/settings/'.$siteSettings->logo) }}" alt="Logo" alt="Shopping-BD">
+                <img src="{{ asset('backend/images/settings/' . $siteSettings->logo) }}" alt="Logo" alt="Shopping-BD">
             </a>
             <div class="search-form-outer">
-                <form action="{{url('/search-products')}}" method="GET" class="form-group search-form">
+                <form action="{{ url('/search-products') }}" method="GET" class="form-group search-form">
                     @csrf
                     <input type="text" name="search" class="form-control" placeholder="Search for items...">
                     <button type="submit"><i class="fas fa-search"></i></button>
@@ -19,7 +19,7 @@
                     <div class="header-top-right-item-link">
                         <span class="icon-outer">
                             <i class="fas fa-cart-plus"></i>
-                            <span class="count-number">{{$cartProductsCount}}</span>
+                            <span class="count-number">{{ $cartProductsCount }}</span>
                         </span>
                         Cart
                     </div>
@@ -31,36 +31,36 @@
                             @endphp
 
                             @foreach ($cartProducts as $cart)
+                                @php
+                                    $totalCartAmount = $totalCartAmount + $cart->price * $cart->qty;
+                                @endphp
 
-                            @php
-                                $totalCartAmount = $totalCartAmount + $cart->price*$cart->qty;
-                            @endphp
-
-                            <div class="cart-item-outer">
-                                <a href="#" class="cart-product-image">
-                                    <img src="{{ asset('backend/images/product/'.$cart->product->image) }}" alt="product">
-                                </a>
-                                <div class="cart-product-name-price">
-                                    <a href="#" class="product-name">
-                                        {{$cart->product->name}}
+                                <div class="cart-item-outer">
+                                    <a href="#" class="cart-product-image">
+                                        <img src="{{ asset('backend/images/product/' . $cart->product->image) }}"
+                                            alt="product">
                                     </a>
-                                    <span class="product-price">
-                                        ৳ {{$cart->price}}
-                                    </span>
+                                    <div class="cart-product-name-price">
+                                        <a href="#" class="product-name">
+                                            {{ $cart->product->name }}
+                                        </a>
+                                        <span class="product-price">
+                                            ৳ {{ $cart->price }}
+                                        </span>
+                                    </div>
+                                    <div class="cart-item-delete">
+                                        <a href="{{ url('/add-to-cart/delete/' . $cart->id) }}" class="delete-btn">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="cart-item-delete">
-                                    <a href="{{url('/add-to-cart/delete/'.$cart->id)}}" class="delete-btn">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
                             @endforeach
 
                         </div>
                         <div class="shopping-cart-footer">
                             <div class="shopping-cart-total">
                                 <h4>
-                                    Total <span>৳ {{$totalCartAmount}}</span>
+                                    Total <span>৳ {{ $totalCartAmount }}</span>
                                 </h4>
                             </div>
                             <div class="shopping-cart-button">
@@ -87,22 +87,23 @@
 
                                 @foreach ($allCategories as $category)
                                     <li class="header__category-list-item item-has-submenu">
-                                        <a href="{{url('category-products/'.$category->slug.'/'.$category->id)}}" class="header__category-list-item-link">
-                                            <img src="{{ asset('backend/images/category/'.$category->image) }}" alt="category">
-                                            {{$category->name}}
+                                        <a href="{{ url('category-products/' . $category->slug . '/' . $category->id) }}"
+                                            class="header__category-list-item-link">
+                                            <img src="{{ asset('backend/images/category/' . $category->image) }}"
+                                                alt="category">
+                                            {{ $category->name }}
                                         </a>
                                         <ul class="header__nav-item-category-submenu">
                                             @foreach ($category->subCategory as $subCategory)
-                                            <li class="header__category-submenu-item">
-                                                <a href="{{url('subcategory-products/'.$subCategory.'/'.$subCategory->id)}}"
-                                                    class="header__category-submenu-item-link">
-                                                    {{$subCategory->name}}
-                                                </a>
-                                            </li>
+                                                <li class="header__category-submenu-item">
+                                                    <a href="{{ url('subcategory-products/' . $subCategory . '/' . $subCategory->id) }}"
+                                                        class="header__category-submenu-item-link">
+                                                        {{ $subCategory->name }}
+                                                    </a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </li>
-                                    
                                 @endforeach
                             </ul>
                         </div>
@@ -119,33 +120,33 @@
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/shop-products')}}" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/shop-products') }}" class="dynamic-page-list-item-link">
                                 Shop
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/offer-products')}}" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/offer-products') }}" class="dynamic-page-list-item-link">
                                 Offer Products
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/combo-products')}}" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/combo-products') }}" class="dynamic-page-list-item-link">
                                 Combo Offer
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/standard-products')}}" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/standard-products') }}" class="dynamic-page-list-item-link">
                                 Standard Products
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/premium-products')}}" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/premium-products') }}" class="dynamic-page-list-item-link">
                                 Premium Products
                             </a>
                         </li>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/return-product')}}" class="dynamic-page-list-item-link">
+                            <a href="{{ url('/return-product') }}" class="dynamic-page-list-item-link">
                                 Return Process
                             </a>
                         </li>

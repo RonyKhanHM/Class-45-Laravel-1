@@ -29,7 +29,7 @@
                     </ul>
                 </div>
 
-                
+
                 {{-- <div class="home__slider-items-wrapper">
                     <div class="home__slider-item-outer">
                         <img src="{{ asset('backend/images/settings/' . $siteSettings->banner) }}" alt="image"
@@ -56,7 +56,7 @@
                     }
                 </style>
 
-                <div class="carousel slide mt-2" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
+                {{-- <div class="carousel slide mt-2" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="{{ asset('backend/images/sliderBanner/banner1.jpg') }}" alt="image" width="100">
@@ -109,6 +109,40 @@
                             <img src="{{ asset('backend/images/sliderBanner/banner3.jpg') }}" alt="image"
                                 width="100">
                         </button>
+                    </div>
+                </div> --}}
+                
+                <div class="carousel slide mt-2" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($sliders as $index => $slide)
+                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                <img src="{{ asset('backend/images/sliderBanner/' . $slide->image) }}" alt="image"
+                                    width="100%">
+                                <div class="carousel-caption">
+                                    <h4>{{$slide->title}}</h4>
+                                    <p>{!!ucfirst($slide->description)!!}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDemo"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDemo"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+
+                    <div class="carousel-indicators">
+                        @foreach ($sliders as $index => $slide)
+                            <button type="button" data-bs-target="#carouselDemo" data-bs-slide-to="{{ $index }}"
+                                class="{{ $index == 0 ? 'active' : '' }}">
+                                <img src="{{ asset('backend/images/sliderBanner/'. $slide->image) }}"
+                                    alt="Slide {{ $index }}" width="100">
+                            </button>
+                        @endforeach
                     </div>
                 </div>
 
@@ -223,8 +257,7 @@
                     <div class="product__item-outer">
                         <div class="product__item-image-outer">
                             <a href="{{ url('/product/details/' . $product->slug) }}" class="product__item-image-inner">
-                                <img src="{{ asset('backend/images/product/' . $product->image) }}"
-                                    alt="Product Image" />
+                                <img src="{{ asset('backend/images/product/' . $product->image) }}" alt="Product Image" />
                             </a>
                             <div class="product__item-add-cart-btn-outer">
                                 <a href="{{ url('add-to-cart/' . $product->id) }}"

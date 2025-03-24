@@ -97,13 +97,13 @@
                         <div class="col-md-6">
                             <div class="form-group" id="size_fields">
                                 <label>Product Size</label>
-                                <input type="text" name="size[]" value="" class="form-control"
+                                <input type="text" name="size[]" id="size" value="" class="form-control"
                                     placeholder="Enter size (optional)">
                             </div>
                             <button type="button" class="btn btn-primary" id="add_size">Add More</button>
                         </div>
 
-                        <div class="col-12 col-sm-12">
+                        <div class="col-12 col-sm-6">
                             <div class="form-group">
                                 <label>Select Product Type</label>
                                 <select class="form-control select2" style="width: 100%;" name="product_type">
@@ -111,6 +111,18 @@
                                     <option value="new">New Product</option>
                                     <option value="regular">Regular Product</option>
                                     <option value="discount">Discount Product</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Select Vendor</label>
+                                <select class="form-control select2" style="width: 100%;" name="vendor_id">
+                                    <option value=""></option>
+                                    @foreach ($vendors as $vendor)
+                                        <option value="{{ $vendor->id }}">{{ $vendor->b_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -136,7 +148,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Gallery Images</label>
-                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control" required>
+                                <input type="file" accept="image/*" name="galleryImage[]" multiple
+                                    class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -331,7 +344,7 @@
             $("#add_color").click(function() {
                 $("#color_fields").append(
                     '<input type="text" name="color[]" id="color" value="" class="form-control"placeholder="Enter color (optional)">'
-                    )
+                )
             })
         })
 
@@ -339,7 +352,7 @@
             $("#add_size").click(function() {
                 $("#size_fields").append(
                     '<input type="text" name="size[]" id="size" value="" class="form-control"placeholder="Enter size (optional)">'
-                    )
+                )
             })
         })
     </script>

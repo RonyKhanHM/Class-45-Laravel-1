@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Cart;
 use App\Models\ContactMessage;
-use App\Models\order;
+use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;
 use App\Models\ReturnRequest;

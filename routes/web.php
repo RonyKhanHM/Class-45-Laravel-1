@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\VendorController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -107,8 +108,16 @@ Route::middleware(['role:admin'])->group(function(){
   Route::post('/admin/update-catetory/{id}', [CategoryController::class, 'update'])->name('category.update');
 });
 
-//SubCategory Routs....
+//Vendor Added Routs...........................
 Route::middleware(['role:admin'])->group(function(){
+  Route::get('/admin/added-vendor', [VendorController::class, 'addedVendor'])->name('vendor.added');
+  Route::post('/admin/store-vendor', [VendorController::class, 'storeVendor'])->name('vendor.store');
+  Route::get('/admin/show-vendor', [VendorController::class, 'showVendor'])->name('vendor.show');
+  Route::get('/admin/delete-vendor/{id}', [VendorController::class, 'deleteVendor'])->name('vendor.delete');
+  Route::get('/admin/edit-vendor/{id}', [VendorController::class, 'editVendor'])->name('vendor.edit');
+  Route::post('/admin/update-vendor/{id}', [VendorController::class, 'updateVendor'])->name('vendor.update');
+
+  //SubCategory Routs.........................
   Route::get('/admin/create-subcatetory', [SubCategoryController::class, 'create'])->name('subcategory.create');
   Route::post('/admin/store-subcatetory', [SubCategoryController::class, 'store'])->name('subcategory.store');
   Route::get('/admin/show-subcatetory', [SubCategoryController::class, 'show'])->name('subcategory.show');

@@ -89,7 +89,7 @@
                                     </form>
                                     <button type="button" class="product-details-hot-line">
                                         <i class="fas fa-phone-alt"></i>
-                                        For Call : 01567989230
+                                        For Call : +8801567989230
                                     </button>
                                 </div>
                             </div>
@@ -123,46 +123,49 @@
                                     aria-labelledby="pills-description-tab">
                                     {!! $product->description !!}
                                 </div>
-                                <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                                <div class="tab-pane fade" id="pills-review" role="tabpanel"
+                                    aria-labelledby="pills-review-tab">
                                     @foreach ($product->review as $item)
-                                    <div class="review-item-wrapper">
-                                        <div class="review-item-left">
-                                            <img src="{{asset('backend/images/review/'.$item->image)}}" height="50" width="50">
-                                        </div>
-                                        <div class="review-item-right">
-                                            <h4 class="review-author-name">
-                                                {{$item->name}}
-                                                @if ($item->status != null)
-                                                    <span class=" d-inline bg-danger badge-sm badge text-white">{{ucfirst($item->status)}}</span>
-                                                @endif
-                                            </h4>
-                                            <p class="review-item-message">
-                                                {!!$item->comments!!}
-                                            </p>
-                                            <span class="review-item-rating-stars">
-                                                @if ($item->rating == 1)
-                                                    <i class="fa-star fas"></i>
+                                        <div class="review-item-wrapper">
+                                            <div class="review-item-left">
+                                                <img src="{{ asset('backend/images/review/' . $item->image) }}"
+                                                    height="50" width="50">
+                                            </div>
+                                            <div class="review-item-right">
+                                                <h4 class="review-author-name">
+                                                    {{ $item->name }}
+                                                    @if ($item->status != null)
+                                                        <span
+                                                            class=" d-inline bg-danger badge-sm badge text-white">{{ ucfirst($item->status) }}</span>
+                                                    @endif
+                                                </h4>
+                                                <p class="review-item-message">
+                                                    {!! $item->comments !!}
+                                                </p>
+                                                <span class="review-item-rating-stars">
+                                                    @if ($item->rating == 1)
+                                                        <i class="fa-star fas"></i>
                                                     @elseif ($item->rating == 2)
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
                                                     @elseif ($item->rating == 3)
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
                                                     @elseif ($item->rating == 4)
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
                                                     @elseif ($item->rating == 5)
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                    <i class="fa-star fas"></i>
-                                                @endif
-                                            </span>
-                                            {{-- <br><br>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                        <i class="fa-star fas"></i>
+                                                    @endif
+                                                </span>
+                                                {{-- <br><br>
                                             <tr>
                                                 <td>
                                                     <img src="#" alt="Rony.png" height="100">
@@ -177,8 +180,8 @@
                                                     <img src="#" alt="Rony.png" height="100">
                                                 </td>
                                             </tr> --}}
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
                                 <div class="tab-pane fade" id="pills-policy" role="tabpanel"

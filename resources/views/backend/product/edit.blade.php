@@ -111,7 +111,7 @@
                             <button type="button" class="btn btn-primary" id="add_size">Add More</button>
                         </div>
 
-                        <div class="col-12 col-sm-12">
+                        <div class="col-12 col-sm-6">
                             <div class="form-group">
                                 <label>Select Product Type</label>
                                 <select class="form-control select2" style="width: 100%;" name="product_type">
@@ -119,6 +119,20 @@
                                     <option value="new" @if ($product->product_type == 'new') selected @endif>New Product</option>
                                     <option value="regular" @if ($product->product_type == 'regular') selected @endif>RegularProduct</option>
                                     <option value="discount" @if ($product->product_type == 'discount') selected @endif>DiscountProduct</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Vendor Name</label>
+                                <select class="form-control select2" style="width: 100%;" name="vendor_id">
+                                    <option value=""></option>
+                                    @foreach ($vendors as $vendor)
+                                        <option value="{{ $vendor->id }}"
+                                            @if ($product->vendor_id == $vendor->id) selected @endif>{{ $vendor->b_name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

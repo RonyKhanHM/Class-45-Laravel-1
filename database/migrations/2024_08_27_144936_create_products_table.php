@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('product_type');
             $table->longText('description');
             $table->longText('product_policy');
+            $table->unsignedBigInteger('vendor_id')->nullable();
             $table->string('image');
             $table->timestamps();
         });

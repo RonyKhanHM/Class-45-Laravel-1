@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Product List</h3>
+    <h3 class="card-title">Vendor List</h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
@@ -11,34 +11,34 @@
       <thead>
       <tr>
         <th>Sl</th>
-        <th>Image</th>
-        <th>Product Name</th>
-        <th>Category Name</th>
-        <th>SubCategory Name</th>
-        <th>Buying Price</th>
-        <th>Regular Price</th>
-        <th>Discount Price</th>
-        <th>qty</th>
-        <th>Vendor</th>
+        <th>Vendor Logo</th>
+        <th>Vendor Business Name</th>
+        {{-- <th>Vendor Owner Name</th> --}}
+        <th>Vendor Contact</th>
+        {{-- <th>Vendor Phone Number</th>
+        <th>Vendor Location</th> --}}
+        <th>Vendor Website</th>
+        <th>Vendor Social Media</th>
         <th>Action</th>
       </tr>
       </thead>
       <tbody>
-        @foreach ($products as $product)
+        @foreach ($vendors as $vendor)
         <tr>
           <td>{{$loop->index+1}}</td>
-          <td><img src="{{asset('backend/images/product/'.$product->image)}}" height="100" width="100"></td>
-          <td>{{$product->name}}</td>
-          <td>{{$product->category->name}}</td>
-          <td>{{$product->subCategory->name}}</td>
-          <td>{{$product->buying_price}}</td>
-          <td>{{$product->regular_price}}</td>
-          <td>{{$product->discount_price}}</td>
-          <td>{{$product->qty}}</td>
-          <td>{{$product->vendor->b_name?? 'N.A'}}</td>
+          <td><img src="{{asset('backend/images/vendorlogo/'.$vendor->logo)}}" height="100"></td>
+          <td>{{$vendor->b_name}}</td>
           <td>
-            <a href="{{url('/admin/edit-product/'.$product->id)}}" class="btn btn-primary">Edit</a>
-            <a href="{{url('/admin/delete-product/'.$product->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+            Owner Name: {{$vendor->o_name}} <br>
+            Email: {{$vendor->email}} <br>
+            Phone: {{$vendor->phone}} <br>
+            Location: {{$vendor->address}} <br>
+          </td>
+          <td><a href="{{$vendor->website}}">{{$vendor->website}}</a></td>
+          <td>{{$vendor->social_m}}</td>
+          <td>
+            <a href="{{url('/admin/edit-vendor/'.$vendor->id)}}" class="btn btn-primary">Edit</a>
+            <a href="{{url('/admin/delete-vendor/'.$vendor->id)}}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
         @endforeach

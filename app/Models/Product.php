@@ -51,4 +51,8 @@ class Product extends Model
     {
         return $this->hasMany(Review::class, 'product_id', 'id');
     }
+    public function vendor ()
+    {
+        return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+    }
 }
