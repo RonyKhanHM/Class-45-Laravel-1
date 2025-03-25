@@ -49,7 +49,7 @@
                   @if (Auth::user()->role == 'admin')
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-tasks"></i>
                               <p>
                                   Categories
                                   <i class="fas fa-angle-left right"></i>
@@ -74,7 +74,7 @@
 
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-list-ul"></i>
                               <p>
                                   SubCategories
                                   <i class="fas fa-angle-left right"></i>
@@ -99,7 +99,7 @@
 
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-handshake"></i>
                               <p>
                                   Vendor
                                   <i class="fas fa-angle-left right"></i>
@@ -124,7 +124,7 @@
 
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-images"></i>
                               <p>
                                   Slider
                                   <i class="fas fa-angle-left right"></i>
@@ -149,7 +149,7 @@
 
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-image"></i>
                               <p>
                                   Banners
                                   <i class="fas fa-angle-left right"></i>
@@ -176,7 +176,7 @@
                   @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-store"></i>
                               <p>
                                   Products
                                   <i class="fas fa-angle-left right"></i>
@@ -200,7 +200,7 @@
                       </li>
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-star"></i>
                               <p>
                                   Reviews
                                   <i class="fas fa-angle-left right"></i>
@@ -226,101 +226,7 @@
 
                   <li class="nav-item">
                       <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-book"></i>
-                          <p>
-                              Orders
-                              <i class="fas fa-angle-left right"></i>
-                          </p>
-                      </a>
-                      <ul class="nav nav-treeview">
-                          <li class="nav-item">
-                              <a href="{{ url('/admin/all-orders') }}" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>All Orders</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="{{ url('/admin/status-orders/pending') }}" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Pending Orders</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="{{ url('/admin/status-orders/confirmed') }}" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Confirmed Orders</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="{{ url('/admin/status-orders/delivared') }}" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Delivared Orders</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="{{ url('/admin/status-orders/canceled') }}" class="nav-link">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Canceled Orders</p>
-                              </a>
-                          </li>
-
-                      </ul>
-                  </li>
-
-                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
-                      <li class="nav-item">
-                          <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
-                              <p>
-                                  Products
-                                  <i class="fas fa-angle-left right"></i>
-                              </p>
-                          </a>
-                          <ul class="nav nav-treeview">
-                              <li class="nav-item">
-                                  <a href="{{ url('/admin/show-product') }}" class="nav-link">
-                                      <i class="far fa-circle nav-icon"></i>
-                                      <p>List</p>
-                                  </a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="{{ url('/admin/create-product') }}" class="nav-link">
-                                      <i class="far fa-circle nav-icon"></i>
-                                      <p>Add New</p>
-                                  </a>
-                              </li>
-
-                          </ul>
-                      </li>
-                      <li class="nav-item">
-                          <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
-                              <p>
-                                  Reviews
-                                  <i class="fas fa-angle-left right"></i>
-                              </p>
-                          </a>
-                          <ul class="nav nav-treeview">
-                              <li class="nav-item">
-                                  <a href="{{ url('/admin/show-reviews') }}" class="nav-link">
-                                      <i class="far fa-circle nav-icon"></i>
-                                      <p>List</p>
-                                  </a>
-                              </li>
-                              <li class="nav-item">
-                                  <a href="{{ url('/admin/create-review') }}" class="nav-link">
-                                      <i class="far fa-circle nav-icon"></i>
-                                      <p>Add New</p>
-                                  </a>
-                              </li>
-
-                          </ul>
-                      </li>
-                  @endif
-
-                  <li class="nav-item">
-                      <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-book"></i>
+                          <i class="nav-icon fas fa-cart-arrow-down"></i>
                           <p>
                               Orders
                               <i class="fas fa-angle-left right"></i>
@@ -365,7 +271,7 @@
                   @if (Auth::user()->role == 'admin')
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-users-cog"></i>
                               <p>
                                   Employees
                                   <i class="fas fa-angle-left right"></i>
@@ -374,13 +280,13 @@
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
                                   <a href="{{ url('/admin/show-employees') }}" class="nav-link">
-                                      <i class="far fa-circle nav-icon"></i>
+                                      <i class="far fa-users nav-icon"></i>
                                       <p>List</p>
                                   </a>
                               </li>
                               <li class="nav-item">
                                   <a href="{{ url('/admin/create-employees') }}" class="nav-link">
-                                      <i class="far fa-circle nav-icon"></i>
+                                      <i class="far fa-user-plus nav-icon"></i>
                                       <p>Add New</p>
                                   </a>
                               </li>
@@ -392,7 +298,7 @@
                   @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-comments"></i>
                               <p>
                                   Messages
                                   <i class="fas fa-angle-left right"></i>
@@ -414,7 +320,7 @@
                       </li>
                       <li class="nav-item">
                           <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-book"></i>
+                              <i class="nav-icon fas fa-cog"></i>
                               <p>
                                   Settings
                                   <i class="fas fa-angle-left right"></i>
@@ -463,7 +369,7 @@
 
                   <li class="nav-item">
                       <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-book"></i>
+                          <i class="nav-icon fas fa-tools"></i>
                           <p>
                               Authentication
                               <i class="fas fa-angle-left right"></i>
